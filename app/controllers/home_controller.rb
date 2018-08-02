@@ -4,4 +4,7 @@ class HomeController < ApplicationController
 
   def momo_gen
   end
+
+  def random
+  end
 end
