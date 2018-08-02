@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def random
   end
+
+  def game
+  end
 end

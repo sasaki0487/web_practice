@@ -1,0 +1,102 @@
+<html>
+<canvas id="gc" width="1000" height="800"></canvas>
+<script>
+var k = 4;
+var q = [];
+var started = false;
+var score = 0;
+var begin;
+window.onload=function() {
+    canv=document.getElementById("gc");
+    ctx=canv.getContext("2d");
+    document.addEventListener("keydown",keyPush);
+    ctx.fillStyle="black";
+    ctx.fillRect(0,0,600,canv.height);
+    ctx.fillStyle="white";
+    ctx.fillRect(0,620,600,10);
+    ctx.font="110px monospace";
+    for(var i = 0 ; i < 4 ; i++){
+        q.push(Math.floor(Math.random() * 4));
+        ctx.fillStyle="red";
+        ctx.fillRect(i * 150 + 10 , 650 ,130,130);
+    }
+    ctx.fillStyle="black";
+    ctx.fillText("D",30,760);
+    ctx.fillText("F",190,760);
+    ctx.fillText("J",360,750);
+    ctx.fillText("K",480,760);
+    ctx.fillRect(0,0,600,600);
+    for(var i = 0 ; i < 4 ; i++){
+        ctx.fillStyle="lime";
+        ctx.fillRect(q[i] * 150 + 10 , 10 + (3-i) * 150 ,130,130);
+    }
+    begin = setInterval(start, 1000/60);
+    ctx.font="60px monospace";
+}
+var time = 10.0;
+function timer(){
+    time -= 0.005;
+}
+function start(){
+    if(time < 0){
+        ctx.fillStyle="white";
+        ctx.fillRect(600,0,400,600);
+        ctx.fillStyle="black";
+        ctx.fillRect(0,0,600,600);  
+        ctx.fillStyle="lime";
+        ctx.font="210px monospace";
+        ctx.fillText("E N D",40,200);
+        ctx.fillStyle="white";
+        ctx.font="120px monospace";
+        ctx.fillText("score",150,350);
+        ctx.textAlign = 'center';
+        ctx.fillText(score,300,500);
+        clearInterval(begin);
+        return;
+    }
+    ctx.fillStyle="white";
+    ctx.fillRect(600,0,400,600);  
+    ctx.fillStyle="black";
+    ctx.fillText("T I M E",650,60);
+    if(time < 3)
+        ctx.fillStyle="red";
+    ctx.fillText(time.toFixed(3),650,130);
+    
+    if(k==4){
+        return;
+    }
+    else if(k==q[0]){
+        if(!started){
+            setInterval(timer, 1);
+            started = true;
+        }
+        score +=100;
+        q.shift();
+        q.push(Math.floor(Math.random() * 4));
+        ctx.fillStyle="black";
+        ctx.fillRect(0,0,600,600);
+        ctx.fillStyle="lime";
+        for(var i = 0 ; i < 4 ; i++){
+            ctx.fillRect(q[i] * 150 + 10 , 10 + (3-i) * 150 ,130,130);
+        }
+        k = 4;
+    }
+}
+function keyPush(evt) {
+    switch(evt.keyCode) {
+        case 68:
+            k=0;
+            break;
+        case 70:
+            k=1;
+            break;
+        case 74:
+            k=2;
+            break;
+        case 75:
+            k=3;
+            break;
+    }
+}
+</script>
+</html>
