@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "home#index"
   get 'home/index', to: 'home#index'
   get 'home/momo-gen', to: 'home#momo_gen'
   get 'home/random', to: 'home#random'
