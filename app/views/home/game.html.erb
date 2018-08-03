@@ -5,6 +5,7 @@ var q = [];
 var started = false;
 var score = 0;
 var begin;
+var combo = 0;
 window.onload=function() {
     canv=document.getElementById("gc");
     ctx=canv.getContext("2d");
@@ -29,7 +30,7 @@ window.onload=function() {
         ctx.fillStyle="lime";
         ctx.fillRect(q[i] * 150 + 10 , 10 + (3-i) * 150 ,130,130);
     }
-    begin = setInterval(start, 1000/60);
+    begin = setInterval(start, 1);
     ctx.font="60px monospace";
 }
 var time = 10.0;
@@ -39,7 +40,7 @@ function timer(){
 function start(){
     if(time < 0){
         ctx.fillStyle="white";
-        ctx.fillRect(600,0,400,600);
+        ctx.fillRect(600,0,400,800);
         ctx.fillStyle="black";
         ctx.fillRect(0,0,600,600);  
         ctx.fillStyle="lime";
@@ -54,9 +55,16 @@ function start(){
         return;
     }
     ctx.fillStyle="white";
-    ctx.fillRect(600,0,400,600);  
+    ctx.fillRect(600,0,400,400);  
+    ctx.textAlign = 'center';
+    ctx.fillText("C O M B O",300,200);
+    ctx.fillText(combo,300,300);
+    ctx.textAlign = 'left';
     ctx.fillStyle="black";
-    ctx.fillText("T I M E",650,60);
+    ctx.fillText(" T I M E",650,60);
+    ctx.fillText("score",650,400);
+    ctx.fillText(score,650,480);
+    
     if(time < 3)
         ctx.fillStyle="red";
     ctx.fillText(time.toFixed(3),650,130);
@@ -69,17 +77,40 @@ function start(){
             setInterval(timer, 1);
             started = true;
         }
+        combo++;
+        if(combo % 10 == 0){
+            time+=1;
+        }
         score +=100;
         q.shift();
         q.push(Math.floor(Math.random() * 4));
+        ctx.fillStyle="white";
+        ctx.fillRect(600,400,400,250); 
+        ctx.fillStyle="black";
+        ctx.fillRect(0,0,600,600);
+        ctx.fillText("+100",630,600);
+        ctx.fillStyle="lime";
+        for(var i = 0 ; i < 4 ; i++){
+            ctx.fillRect(q[i] * 150 + 10 , 10 + (3-i) * 150 ,130,130);
+        }
+    }
+    else if(started){
+        combo = 0;
+        time -= 0.2;
+        score -=50;
         ctx.fillStyle="black";
         ctx.fillRect(0,0,600,600);
         ctx.fillStyle="lime";
         for(var i = 0 ; i < 4 ; i++){
             ctx.fillRect(q[i] * 150 + 10 , 10 + (3-i) * 150 ,130,130);
         }
-        k = 4;
+        ctx.fillStyle="white";
+        ctx.fillRect(600,400,400,250); 
+        ctx.fillStyle="red";
+        ctx.fillText("-50",630,600);
     }
+    
+    k = 4;
 }
 function keyPush(evt) {
     switch(evt.keyCode) {
@@ -94,6 +125,9 @@ function keyPush(evt) {
             break;
         case 75:
             k=3;
+            break;
+        case 82:
+            history.go(0);
             break;
     }
 }
