@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def game
   end
+
+  def resume
+  end
 end

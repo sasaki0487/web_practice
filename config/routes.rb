@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get 'home/momo-gen', to: 'home#momo_gen'
   get 'home/random', to: 'home#random'
   get 'home/game', to: 'home#game'
+  get 'home/resume', to: 'home#resume'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
