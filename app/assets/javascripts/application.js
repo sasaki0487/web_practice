@@ -1,10 +1,5 @@
 //= require jquery3
 //= require bootstrap
-import "bootstrap-sass/assets/javascripts/bootstrap/dropdown";
-import "bootstrap-sass/assets/javascripts/bootstrap/modal";
-import "bootstrap-sass/assets/javascripts/bootstrap/tooltip";
-import "bootstrap-sass/assets/javascripts/bootstrap/popover";
-import "../stylesheets/*";
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
