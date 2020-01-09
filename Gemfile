@@ -6,13 +6,21 @@ git_source(:github) do |repo_name|
 end
 
 
+gem "loofah", ">= 2.3.1"
+gem "rails-html-sanitizer", ">= 1.0.4"
+gem "sprockets", ">= 3.7.2"
+gem "rubyzip", ">= 1.3.0"
+gem "rack", ">= 2.0.8"
+gem "activejob", ">= 5.1.6.1"
+gem "nokogiri", ">= 1.10.4"
+gem "actionview", ">= 5.1.6.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '>= 5.1.4'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'pg', '~> 0.21.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem "puma", ">= 3.12.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
