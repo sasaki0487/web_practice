@@ -1,0 +1,18 @@
+<h1>請說</h1>
+
+<%= form_with model: @comment , url: new_comment_path do |f| %>
+    <%= f.label :name, "你叫" %>
+    <%= f.text_field :name %> <br />
+    
+    <%= f.label :comment, "想說" %>
+    <%= f.text_area :comment %> <br />
+
+    <%= f.submit "送出" %>
+<% end %>
+
+<br />
+<%= link_to '回首頁', home_index_path %>
+<br />
+<%= link_to '回留言板', comments_path %>
+
+

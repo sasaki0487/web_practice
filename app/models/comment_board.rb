@@ -1,0 +1,2 @@
+class CommentBoard < ApplicationRecord
+end

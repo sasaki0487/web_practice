@@ -1,0 +1,21 @@
+<h1> COMMENTS </h1>
+
+<%= link_to "我要留言", new_comment_path %>
+
+<table>
+    <thead>
+        <tr>
+            <td>某人</td>
+            <td>說過</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @comments.each do |comment| %>
+        <tr>
+            <td><%= comment.name %></td>
+            <td><%= comment.comment %></td>
+        <tr>
+        <% end %>
+    </tbody>
+</table>
+
