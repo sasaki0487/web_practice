@@ -1,4 +1,24 @@
-	<%= link_to "隔壁校產生器",home_momo_gen_path %>
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+
+<body onload="startTime()">
+    <div id="txt"></div>
+    <%= link_to "隔壁校產生器",home_momo_gen_path %>
 	<br>
 	<%= link_to "抽籤由此去",home_random_path %>
 	<br>
@@ -7,4 +27,3 @@
     <%= link_to "自我介紹",home_resume_path %>
     <br>
     <%= link_to "留言給我",comments_path %>
-
