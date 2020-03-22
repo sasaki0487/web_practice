@@ -8,7 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import "bootstrap"
-import "../stylesheets/application"
+import "../stylesheets/style"
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip()
