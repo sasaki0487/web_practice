@@ -1,29 +1,49 @@
-<script>
-function startTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML =
-  h + ":" + m + ":" + s;
-  var t = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-</script>
-
-<body onload="startTime()">
-    <div id="txt"></div>
-    <%= link_to "隔壁校產生器",home_momo_gen_path %>
-	<br>
-	<%= link_to "抽籤由此去",home_random_path %>
-	<br>
-    <%= link_to "小遊戲",home_game_path %>
-    <br>
-    <%= link_to "自我介紹",home_resume_path %>
-    <br>
-    <%= link_to "留言給我",comments_path %>
+<div class="row">
+  <div class="col mt-3 mx-2">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">自我介紹</h3>
+        <p class="card-text">用bootstrap模板蓋的自我介紹<br>現在還在蓋</p>
+        <a href="/home/resume" class="btn btn-primary">去看看</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mt-3 mx-2">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">快打遊戲</h3>
+        <p class="card-text">一個用鍵盤才能玩的小遊戲，挑戰你的手速<br>可能無法正常顯示</p>
+        <a href="/home/game" class="btn btn-primary">去玩玩</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mt-3 mx-2">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">隨機抽籤</h3>
+        <p class="card-text">很簡單的抽籤程式</p>
+        <a href="/home/random" class="btn btn-primary">去抽抽</a>
+      </div>
+    </div>
+  </div>
+  <div class="w-100"></div>
+  <div class="col mt-3 mx-2">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">隔壁校產生器</h3>
+        <p class="card-text">某個過氣網路紅人a語錄產生器</p>
+        <a href="/home/momo-gen" class="btn btn-primary">去起爭議</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mt-3 mx-2">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">留言板</h3>
+        <p class="card-text">可以留言給我的地方，什麼都可以留</p>
+        <a href="/home/comments" class="btn btn-primary">去留言</a>
+      </div>
+    </div>
+  </div>
+  <div class="col mt-3 mx-2"></div>
+</div>

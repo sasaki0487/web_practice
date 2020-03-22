@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'webpacker', '~> 4.x'
 gem "loofah", ">= 2.3.1"
 gem "rails-html-sanitizer", ">= 1.0.4"
 gem "sprockets", ">= 3.7.2"

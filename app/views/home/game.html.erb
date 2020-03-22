@@ -1,4 +1,4 @@
-<canvas id="gc" width="1000" height="800"></canvas>
+<canvas id="gc" class='img-responsive' width="1000" height="800"></canvas>
 <script>
 var k = 4;
 var q = [];
@@ -6,7 +6,7 @@ var started = false;
 var score = 0;
 var begin;
 var combo = 0;
-window.onload=function() {
+window.addEventListener('load', function() {
     canv=document.getElementById("gc");
     ctx=canv.getContext("2d");
     document.addEventListener("keydown",keyPush);
@@ -32,7 +32,8 @@ window.onload=function() {
     }
     begin = setInterval(start, 1);
     ctx.font="60px monospace";
-}
+})
+
 var time = 10.0;
 function timer(){
     time -= 0.005;
@@ -45,7 +46,7 @@ function start(){
         ctx.fillRect(0,0,600,600);  
         ctx.fillStyle="lime";
         ctx.font="210px monospace";
-        ctx.fillText("E N D",40,200);
+        ctx.fillText("E N D",20,200);
         ctx.fillStyle="white";
         ctx.font="120px monospace";
         ctx.fillText("score",150,350);
