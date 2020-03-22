@@ -1,20 +1,22 @@
 <h1> COMMENTS </h1>
 
-<%= link_to "我要留言", new_comment_path %>
+<a class="btn btn-primary mb-3" href="/home/comments/new" role="button">我要留言</a>
 
-<table>
+<table class="table table-hover">
     <thead>
-        <tr>
-            <td>某人</td>
-            <td>說過</td>
-        </tr>
+      <tr>
+        <th scope="col" style="width: 5%"> </th>
+        <th scope="col" style="width: 25%">某人</th>
+        <th scope="col" style="width: 70%">說過</th>
+      </tr>
     </thead>
     <tbody>
         <% @comments.each do |comment| %>
-        <tr>
+          <tr>
+            <td> </td>
             <td><%= comment.name %></td>
             <td><%= comment.comment %></td>
-        <tr>
+          <tr>
         <% end %>
     </tbody>
 </table>
