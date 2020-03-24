@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>  
+  <body>
+    <h1>Cats</h1>
+    <img id="cat_pic" src="" class="img-fluid">
+    </br>
+    <button onclick="get_cat_pic()" type="button" class="btn btn-primary" >隨機貓貓</button>
+  </body>
+</html>
+
+  <script>
+    var uri="";
+    function get_cat_pic(){
+      $.get("https://api.thecatapi.com/v1/images/search", function(data,status){
+        uri = data[0]["url"];
+      });
+      document.getElementById("cat_pic").src = uri;
+    }
+    get_cat_pic();
+  </script>
