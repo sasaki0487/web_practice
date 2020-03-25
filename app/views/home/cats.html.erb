@@ -1,22 +1,39 @@
 <html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>  
-  <body>
-    <h1>Cats</h1>
-    <img id="cat_pic" src="" class="img-fluid">
-    </br>
-    <button onclick="get_cat_pic()" type="button" class="btn btn-primary" >隨機貓貓</button>
-  </body>
-</html>
 
+  <head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
+
     var uri="";
+
     function get_cat_pic(){
+      var ajaxTime= new Date().getTime();
       $.get("https://api.thecatapi.com/v1/images/search", function(data,status){
         uri = data[0]["url"];
+      })
+      .done(function(){
+        document.getElementById("cat_pic").src = uri;
+        var totalTime = Date.now() - ajaxTime;
+        console.log(totalTime);
       });
-      document.getElementById("cat_pic").src = uri;
     }
-    get_cat_pic();
+    document.addEventListener("DOMContentLoaded", function() { 
+      get_cat_pic();
+    });
+
   </script>
+
+  </head>  
+
+  <body>
+    <div align="center">
+    <h1>點貓貓可以換貓貓!</h1>
+
+    <img id="cat_pic" onclick="get_cat_pic()" style="max-width:800px;max-height:800px;width:auto;height:auto;">
+
+    </div>
+
+  </body>
+
+</html>
