@@ -173,7 +173,7 @@ GEM
     turbolinks (5.1.0)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
-    tzinfo (1.2.6)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.3)
       tzinfo (>= 1.0.0)
@@ -209,7 +209,7 @@ DEPENDENCIES
   jquery-rails
   loofah (>= 2.3.1)
   nokogiri (>= 1.10.4)
-  pg (~> 0.21.0)
+  pg
   puma (>= 3.12.2)
   rack (>= 2.0.8)
   rails (>= 5.1.4)
