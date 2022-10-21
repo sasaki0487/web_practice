@@ -98,14 +98,14 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.0.2)
-    mini_portile2 (2.6.1)
+    mini_portile2 (2.8.0)
     minitest (5.14.0)
     multi_json (1.13.1)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.12.5-x64-mingw32)
+    nokogiri (1.13.9-x64-mingw32)
       racc (~> 1.4)
     pg (0.21.0)
     pg (0.21.0-x64-mingw32)
@@ -209,7 +209,7 @@ DEPENDENCIES
   jquery-rails
   loofah (>= 2.3.1)
   nokogiri (>= 1.10.4)
-  pg (~> 0.21.0)
+  pg
   puma (>= 3.12.2)
   rack (>= 2.0.8)
   rails (>= 5.1.4)
